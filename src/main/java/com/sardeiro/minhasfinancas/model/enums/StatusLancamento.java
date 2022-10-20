@@ -1,4 +1,4 @@
-package com.sardeiro.minhasfinancas.model.entity;
+package com.sardeiro.minhasfinancas.model.enums;
 
 public enum StatusLancamento {
 	
