@@ -45,6 +45,7 @@ public class Usuario {
 		usuario.setEmail("douglas@gmail.com");
 		usuario.setNome("usuario");
 		usuario.setSenha("senha");
+		usuario.setSenha("senha");
 
 	}
 	
