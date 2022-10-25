@@ -89,7 +89,7 @@ public class UsuarioServiceTest {
 
 			// açao
 
-			service.validarEmail("email@email.com");
+			service.validarEmail("email@email.com"); 
 
 		});
 	}
