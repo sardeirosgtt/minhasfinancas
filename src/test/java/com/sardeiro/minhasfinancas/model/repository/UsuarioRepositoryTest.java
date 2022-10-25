@@ -23,7 +23,7 @@ public class UsuarioRepositoryTest {
 
 	@Autowired
 	UsuarioRepository repository;
-	
+
 	@Autowired
 	TestEntityManager entityManager;
 
@@ -54,40 +54,40 @@ public class UsuarioRepositoryTest {
 		Assertions.assertThat(result).isFalse();
 
 	}
-	
+
 	@Test
 	public void devePersistirUmUsuarioNaBaseDeDados() {
-		//cenario
+		// cenario
 		Usuario usuario = criarUsuario();
-		//acao
-		
+		// acao
+
 		Usuario usuarioSalvo = repository.save(usuario);
-		
+
 		Assertions.assertThat(usuarioSalvo.getId()).isNotNull();
-		
+
 	}
-	
+
 	@Test
 	public void deveBuscarUmUsuarioPorEmail() {
-		//cenario
+		// cenario
 		Usuario usuario = criarUsuario();
 		entityManager.persist(usuario);
-		//acao
+		// acao
 		Optional<Usuario> result = repository.findByEmail("usuario.gmail.com");
-		
+
 		Assertions.assertThat(result.isPresent()).isTrue();
 	}
-	
+
 	@Test
 	public void deveRetornarVazioAoBuscarUsuarioPorEmailQuandoNaoExistirNaBase() {
-		//acao
+		// acao
 		Optional<Usuario> result = repository.findByEmail("usuario.gmail.com");
-		
+
 		Assertions.assertThat(result.isPresent()).isFalse();
 	}
-	
+
 	public static Usuario criarUsuario() {
 		return Usuario.builder().nome("usuario").email("usuario.gmail.com").senha("senha").build();
 	}
-	
+
 }

@@ -11,12 +11,10 @@ import com.sardeiro.minhasfinancas.model.entity.Usuario;
 import com.sardeiro.minhasfinancas.model.repository.UsuarioRepository;
 import com.sardeiro.minhasfinancas.service.UsuarioService;
 
-
 @Service
-public class UsuarioServiceImpl implements UsuarioService  {
-	
+public class UsuarioServiceImpl implements UsuarioService {
+
 	private UsuarioRepository repository;
-	
 
 	public UsuarioServiceImpl(UsuarioRepository repository) {
 		super();
@@ -29,11 +27,11 @@ public class UsuarioServiceImpl implements UsuarioService  {
 		if (!usuario.isPresent()) {
 			throw new ErroAutenticacao("Usuário não encontrado!");
 		}
-		
+
 		if (!usuario.get().getSenha().equals(senha)) {
 			throw new ErroAutenticacao("Senha invalida!");
 		}
-		
+
 		return usuario.get();
 	}
 
@@ -47,11 +45,11 @@ public class UsuarioServiceImpl implements UsuarioService  {
 	@Override
 	public void validarEmail(String email) {
 		boolean existe = repository.existsByEmail(email);
-		
+
 		if (existe) {
 			throw new RegraNegocioException("Já existe um usuário cadastrado com esse email");
 		}
-		
+
 	}
 
 }
